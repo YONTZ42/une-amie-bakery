@@ -9,6 +9,7 @@
     "install:ci": "bash scripts/install-ci.sh",
     "dev": "astro dev",
     "build": "astro build",
+    "deploy": "wrangler deploy",
     "build:sites": "node scripts/build-astro-site.mjs",
     "start": "astro preview",
     "test": "npm run build",

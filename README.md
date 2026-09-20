@@ -21,7 +21,16 @@ Astroのソースは `src/` にあります。
 
 `main` ブランチへのpushとPull Requestで、GitHub ActionsがNode.js 22上の本番ビルドを検証します。
 
-Cloudflareへのデプロイ設定は、GitHubリポジトリ作成後に追加します。
+## Cloudflare Workers
+
+Cloudflare Workers Buildsでは次の設定を使用します。
+
+- Production branch: `main`
+- Build command: `npm run build`
+- Deploy command: `npx wrangler deploy`
+- Root directory: `/`
+
+Astroの静的出力 `dist/client` は、`wrangler.jsonc` のStatic Assets設定で配信します。
 
 - `src/pages/index.astro` — トップページ構成とコンテンツ
 - `src/components/Header.astro` — PC／スマホ共通ヘッダー
