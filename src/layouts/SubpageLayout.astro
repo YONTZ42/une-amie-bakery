@@ -1,0 +1,52 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "./BaseLayout.astro";
+import Header from "../components/Header.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+
+interface Props {
+  title: string;
+  eyebrow: string;
+  lead: string;
+  description?: string;
+  image: ImageMetadata;
+  imageAlt: string;
+  imagePosition?: string;
+}
+
+const {
+  title,
+  eyebrow,
+  lead,
+  description = "ページの詳しい内容は準備中です。",
+  image,
+  imageAlt,
+  imagePosition = "50% 50%",
+} = Astro.props;
+---
+
+<BaseLayout title={`${title}｜ブーランジェリー アン アミー`} description={lead}>
+  <Header />
+  <main class="subpage-main">
+    <section class="subpage-hero">
+      <Image src={image} alt={imageAlt} loading="eager" fetchpriority="high" style={`--subpage-position: ${imagePosition}`} />
+      <div class="subpage-overlay"></div>
+      <div class="container subpage-heading">
+        <p class="eyebrow">{eyebrow}</p>
+        <h1>{title}</h1>
+      </div>
+    </section>
+
+    <section class="subpage-body section-shell">
+      <div class="container subpage-body-inner">
+        <p class="subpage-lead">{lead}</p>
+        <span class="title-rule"></span>
+        <p>{description}</p>
+        <p class="subpage-status">このページは現在、写真と文章を整えています。</p>
+        <a class="map-button" href="/">トップページへ <span>→</span></a>
+      </div>
+    </section>
+  </main>
+
+  <SiteFooter />
+</BaseLayout>

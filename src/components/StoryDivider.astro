@@ -1,0 +1,38 @@
+---
+interface Props {
+  tone?: "paper" | "terracotta" | "sage";
+  motifs?: "all" | "cinnamon";
+  curve?: boolean;
+  flip?: boolean;
+  className?: string;
+}
+
+const {
+  tone = "paper",
+  motifs = "all",
+  curve = true,
+  flip = false,
+  className = "",
+} = Astro.props;
+
+const sequence = motifs === "cinnamon"
+  ? ["flower", "dog", "bread", "tree", "house", "dog", "flower"]
+  : flip
+    ? ["house", "dog", "flower", "tree", "bread", "dog", "house"]
+    : ["dog", "flower", "tree", "bread", "house", "dog", "flower"];
+---
+
+<div class:list={["story-divider", `is-${tone}`, { "is-flipped": flip, "is-motifs-only": !curve }, className]} aria-hidden="true">
+  {curve && (
+    <svg class="story-divider-curve" viewBox="0 0 1440 116" preserveAspectRatio="none">
+      <path d="M-24 74 C208 22 422 105 686 62 C954 18 1174 100 1464 45" />
+    </svg>
+  )}
+  <div class:list={["story-motif-row", `is-${motifs}`]}>
+    {sequence.map((motif, index) => (
+      <span class:list={["story-motif-item", `motif-position-${index + 1}`]}>
+        <span class:list={["story-motif", "story-motif-art", `motif-${motif}`]}></span>
+      </span>
+    ))}
+  </div>
+</div>

@@ -1,0 +1,17 @@
+---
+import { Image } from "astro:assets";
+import toastMark from "../assets/images/toast-mark.png";
+
+interface Props {
+  compact?: boolean;
+  inverse?: boolean;
+}
+
+const { compact = false, inverse = false } = Astro.props;
+---
+
+<span class:list={["brand-lockup", { "is-compact": compact, "is-inverse": inverse }]}>
+  <Image class="brand-mark" src={toastMark} alt="" loading="eager" />
+  <span class="brand-name">ブーランジェリー<br />アン アミー</span>
+</span>
+

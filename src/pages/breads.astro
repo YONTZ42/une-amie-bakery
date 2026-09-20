@@ -1,0 +1,59 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import StoryDivider from "../components/StoryDivider.astro";
+import breadGarlic from "../assets/images/bread-garlic.jpg";
+import breadCheese from "../assets/images/bread-cheese.jpg";
+import breadSandwich from "../assets/images/bread-sandwich.jpg";
+import breadSweet from "../assets/images/bread-sweet.jpg";
+
+const breads = [
+  { name: "ガーリックフランス", copy: "サクッと香ばしい生地に、ガーリックとバターの旨みを。", image: breadGarlic, position: "52% 52%" },
+  { name: "塩バターロール", copy: "素材と焼き上げ方にこだわった、毎日に寄り添うパン。", image: breadCheese, position: "50% 58%" },
+  { name: "メンチカツサンド", copy: "ふんわりパンにサクサクのメンチカツをはさんだ一品。", image: breadSandwich, position: "50% 49%" },
+  { name: "ミルククリームパン", copy: "しっとり生地に、自家製ミルククリームをたっぷり。", image: breadSweet, position: "52% 50%" },
+];
+---
+
+<BaseLayout title="BREADS｜ブーランジェリー アン アミー" description="アミーの今日のパンをご紹介します。">
+  <Header />
+  <main class="subpage-main">
+    <section class="subpage-hero breads-page-hero">
+      <Image src={breadCheese} alt="焼きたてのパン" loading="eager" fetchpriority="high" style="--subpage-position: 50% 56%" />
+      <div class="subpage-overlay"></div>
+      <div class="container subpage-heading">
+        <p class="eyebrow">BREADS</p>
+        <h1>今日のパン</h1>
+      </div>
+    </section>
+
+    <StoryDivider tone="paper" />
+
+    <section class="bread-page section-shell">
+      <div class="container">
+        <div class="bread-page-intro">
+          <p class="eyebrow">BAKED TODAY</p>
+          <h2>その日の気分に合う、<br />パンを見つけに。</h2>
+          <span class="title-rule"></span>
+          <p>食事に合わせたいパン。少しお腹が空いたときのパン。甘いものがほしい午後のパン。アミーでは、毎日のさまざまな時間に寄り添うパンを焼いています。</p>
+        </div>
+        <div class="bread-page-grid">
+          {breads.map((bread) => (
+            <article class="bread-card">
+              <div class="bread-photo" style={`--photo-position: ${bread.position}`}>
+                <Image src={bread.image} alt={bread.name} loading="lazy" />
+              </div>
+              <h3>{bread.name}</h3>
+              <p>{bread.copy}</p>
+            </article>
+          ))}
+        </div>
+        <p class="bread-page-note">※ パンの種類や焼き上がりは日によって変わります。最新のお知らせはInstagramをご確認ください。</p>
+      </div>
+    </section>
+  </main>
+
+  <SiteFooter />
+</BaseLayout>

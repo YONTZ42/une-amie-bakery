@@ -1,0 +1,90 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import StoryDivider from "../components/StoryDivider.astro";
+
+import girl from "../assets/images/amie-girl-line-master.png";
+import cinnamonCutout from "../assets/images/cinnamon-roll-single-cutout.png";
+import cinnamonPhoto from "../assets/images/cinnamon.jpg";
+import terrace from "../assets/images/terrace-table.jpg";
+---
+
+<BaseLayout title="CINNAMON ROLL｜ブーランジェリー アン アミー" description="季節が変わっても、何度でも戻ってきたくなる。アミーの原点、シナモンロールをご紹介します。">
+  <Header />
+  <main class="cinnamon-page">
+    <section class="cinnamon-book-hero">
+      <div class="container cinnamon-brand-hero">
+        <div class="cinnamon-brand-composition">
+          <figure class="cinnamon-product-stage reveal">
+            <Image src={cinnamonCutout} alt="焼き色、渦、アイシングが際立つアミーのシナモンロール" loading="eager" fetchpriority="high" />
+          </figure>
+          <figure class="cinnamon-book-girl reveal">
+            <Image src={girl} alt="シナモンロールを手にした女の子の線画" loading="eager" />
+          </figure>
+          <div class="cinnamon-book-heading reveal">
+            <p class="eyebrow">SIGNATURE</p>
+            <h1><span>アミーの</span><strong>シナモンロール</strong></h1>
+            <p>季節が変わっても、何度でも戻ってきたくなる。<br />アミーの原点はこのシナモンロールです。</p>
+          </div>
+        </div>
+      </div>
+      <StoryDivider tone="paper" motifs="cinnamon" className="cinnamon-book-divider" />
+    </section>
+
+    <section class="cinnamon-origin">
+      <div class="container cinnamon-origin-grid">
+        <div class="cinnamon-chapter reveal" aria-hidden="true"><span>01</span><i></i></div>
+        <div class="cinnamon-origin-copy reveal">
+          <p class="eyebrow">OUR ORIGIN</p>
+          <h2>ずっとつくり続けたい、<br />アミーの味。</h2>
+          <span class="title-rule"></span>
+          <p class="cinnamon-origin-lead">流行や季節が変わっても、何度でも食べたくなるものをつくりたい。</p>
+          <p>シナモンの香り、生地のほどけ方、甘さが残りすぎない後味。アミーがパンづくりで大切にしていることを、一つに重ねたのが、このシナモンロールです。</p>
+          <p>特別な日だけではなく、何でもない一日の途中にも選んでもらえる味を目指して、今日も一つずつ焼き上げています。</p>
+        </div>
+        <p class="cinnamon-origin-note reveal">For everyday moments,<br />and someone you love.</p>
+      </div>
+    </section>
+
+    <StoryDivider tone="terracotta" />
+
+    <section class="cinnamon-story">
+      <div class="container cinnamon-story-grid">
+        <figure class="cinnamon-story-photo reveal">
+          <Image src={cinnamonPhoto} alt="アイシングとシナモンの層が見える、焼きたてのシナモンロール" loading="lazy" />
+          <figcaption>渦の重なり、香ばしい縁、白いアイシング。焼き上がりの表情まで、ひとつずつ見守ります。</figcaption>
+        </figure>
+        <div class="cinnamon-story-copy reveal">
+          <p class="eyebrow">A PROMISE TO SOMEONE DEAR</p>
+          <h2>「孫にも食べさせたい」<br />と思えるものを。</h2>
+          <span class="title-rule"></span>
+          <p>自分の孫にも、迷わず手渡したい。それが、私たちがシナモンロールをつくるときの基準です。甘さだけを強くするのではなく、生地の香ばしさとシナモンの余韻を大切にしています。</p>
+          <dl class="cinnamon-notes">
+            <div><dt>01</dt><dd><strong>香りを、層に包む。</strong><span>どこを食べてもシナモンがふわりとほどけるよう、生地の重なりへ丁寧に広げます。</span></dd></div>
+            <div><dt>02</dt><dd><strong>焼き色を、急がない。</strong><span>外側は香ばしく、中はやわらかく。生地がいちばん誇らしげに見える瞬間まで待ちます。</span></dd></div>
+            <div><dt>03</dt><dd><strong>甘さに、余白を残す。</strong><span>アイシングで覆いすぎず、パンとシナモンの余韻がコーヒーや会話へ続く仕上がりに。</span></dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <StoryDivider tone="paper" flip />
+
+    <section class="cinnamon-moment">
+      <div class="container cinnamon-moment-grid">
+        <div class="cinnamon-moment-copy reveal">
+          <p class="eyebrow">FOR EVERYDAY MOMENTS</p>
+          <h2>いつもの時間に、<br />小さなごちそうを。</h2>
+          <span class="title-rule"></span>
+          <p>コーヒーと一緒に、ひと息つく午後。家へ持ち帰って、誰かと分ける時間。特別な日だけではなく、何でもない日に選んでもらえるシナモンロールでありたいと思っています。</p>
+          <a class="ghost-button" href="/shop/">お店の雰囲気を見る <span>→</span></a>
+        </div>
+        <figure class="cinnamon-moment-photo reveal"><Image src={terrace} alt="アミーのテラスで楽しむシナモンロールとコーヒー" loading="lazy" /></figure>
+      </div>
+    </section>
+  </main>
+
+  <SiteFooter />
+</BaseLayout>

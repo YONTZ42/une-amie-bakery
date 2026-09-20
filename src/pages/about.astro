@@ -1,0 +1,94 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import StoryDivider from "../components/StoryDivider.astro";
+
+import landscape from "../assets/images/shop-landscape-illustration.png";
+import girl from "../assets/images/amie-girl-line-master.png";
+import storeSign from "../assets/images/store-sign.jpg";
+import ownerAndJunior from "../assets/images/owner-and-junior.jpg";
+import hands from "../assets/images/craft-hands.jpg";
+import oven from "../assets/images/baker-oven.jpg";
+import interior from "../assets/images/store-interior-new.jpg";
+import terrace from "../assets/images/terrace-wide.jpg";
+---
+
+<BaseLayout title="ABOUT｜ブーランジェリー アン アミー" description="アミーの名前の由来、パンづくりとつくばの街への思いをご紹介します。">
+  <Header />
+  <main class="story-page">
+    <section class="story-hero story-hero--about">
+      <Image src={landscape} alt="食パンのロゴと家、花、パンを描いたアミーの線画" loading="eager" fetchpriority="high" />
+      <div class="container story-hero-heading">
+        <p class="eyebrow">ABOUT</p>
+        <h1>アミーという、<br />名前のこと。</h1>
+        <p>気負わずに会えて、何でもない話を交わせる。<br />そんな場所でありたいと思っています。</p>
+      </div>
+    </section>
+
+    <StoryDivider tone="paper" />
+
+    <section class="story-section story-origin">
+      <div class="container story-origin-grid">
+        <div class="story-copy reveal">
+          <p class="eyebrow">THE NAME, UNE AMIE</p>
+          <h2>“une amie”は、<br />フランス語で「女友達」。</h2>
+          <span class="title-rule"></span>
+          <p>気負わずに会えて、何でもない話を交わせる。パン屋という場所を超えて、そんなふうに気軽に訪ねられる店でありたい。その思いを、アミーという名前に込めました。</p>
+          <p>誰かと同じパンを分けたこと。帰り道に交わした、何気ない言葉。久しぶりに会って、話が止まらなかったこと。何でもない時間ほど、あとになって心に残っていることがあります。</p>
+          <p>アミーは、そんな毎日のそばにあるパンをつくります。</p>
+        </div>
+        <div class="story-origin-visual reveal">
+          <figure class="story-sign">
+            <Image src={storeSign} alt="店内の壁に掲げられたブーランジェリー アン アミーのサイン" loading="lazy" />
+            <figcaption>店内に掲げた、アミーの名前。</figcaption>
+          </figure>
+          <div class="story-origin-art">
+            <Image src={girl} alt="シナモンロールを手にしたアミーの女の子" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <StoryDivider tone="terracotta" flip />
+
+    <section class="story-section story-makers">
+      <div class="container">
+        <div class="story-heading reveal">
+          <p class="eyebrow">PEOPLE BEHIND THE BREAD</p>
+          <h2>場所が変わっても、<br />続いていく関係。</h2>
+          <p>写真の左は店主、右は以前の職場の後輩です。以前の職場で出会い、働く場所が変わった今も、こうして店を訪ねてくれる関係が続いています。時間が空いても、また会える。顔を合わせれば、自然と会話が始まる。アミーも、そんなふうに気軽に立ち寄れる場所でありたいと思っています。</p>
+        </div>
+        <div class="makers-collage">
+          <figure class="makers-photo makers-photo--main makers-photo--people reveal">
+            <Image src={ownerAndJunior} alt="店の前に立つ、左の店主と右の以前の職場の後輩" loading="lazy" />
+            <figcaption><span>LEFT</span> 店主　／　<span>RIGHT</span> 以前の職場の後輩</figcaption>
+          </figure>
+          <figure class="makers-photo makers-photo--hands reveal"><Image src={interior} alt="絵や花で彩られたアミーの店内" loading="lazy" /></figure>
+          <figure class="makers-photo makers-photo--oven reveal"><Image src={terrace} alt="パンとコーヒーを楽しめるアミーのテラス" loading="lazy" /></figure>
+        </div>
+      </div>
+    </section>
+
+    <StoryDivider tone="sage" flip />
+
+    <section class="story-section story-neighborhood">
+      <div class="container neighborhood-grid">
+        <div class="neighborhood-gallery reveal">
+          <figure class="neighborhood-interior"><Image src={hands} alt="パン生地を丁寧に成形する手元" loading="lazy" /></figure>
+          <figure class="neighborhood-terrace"><Image src={oven} alt="焼き上がりを見守る私たち" loading="lazy" /></figure>
+        </div>
+        <div class="story-copy neighborhood-copy reveal">
+          <p class="eyebrow">OUR BREAD</p>
+          <h2>アミーが毎日、<br />向き合うパン。</h2>
+          <span class="title-rule"></span>
+          <p>素材や製法と同じように、「どんな時間に食べてほしいか」を大切にしています。</p>
+          <p>朝の食卓で。ひと息つきたい午後に。誰かと一緒に過ごす時間に。パンを食べる、そのひとときまで思い浮かべながら、毎日一つひとつ焼き上げています。</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <SiteFooter />
+</BaseLayout>

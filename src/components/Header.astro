@@ -1,0 +1,50 @@
+---
+import BrandLockup from "./BrandLockup.astro";
+
+const currentPath = Astro.url.pathname;
+const isCurrent = (path: string) => currentPath === path || currentPath.startsWith(path);
+---
+
+<header class="site-header" data-header>
+  <a class="header-logo" href="/" aria-label="ブーランジェリー アン アミー トップへ">
+    <BrandLockup compact />
+  </a>
+
+  <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-navigation" data-menu-button>
+    <span class="sr-only">メニューを開く</span>
+    <span></span><span></span><span></span>
+  </button>
+
+  <nav class="site-navigation" id="site-navigation" aria-label="メインナビゲーション" data-menu>
+    <a class:list={{ "is-current": isCurrent("/about/") }} aria-current={isCurrent("/about/") ? "page" : undefined} href="/about/">ABOUT</a>
+    <a class:list={{ "is-current": isCurrent("/cinnamon-roll/") }} aria-current={isCurrent("/cinnamon-roll/") ? "page" : undefined} href="/cinnamon-roll/">CINNAMON ROLL</a>
+    <a class:list={{ "is-current": isCurrent("/breads/") }} aria-current={isCurrent("/breads/") ? "page" : undefined} href="/breads/">BREADS</a>
+    <a class:list={{ "is-current": isCurrent("/shop/") }} aria-current={isCurrent("/shop/") ? "page" : undefined} href="/shop/">SHOP</a>
+    <a class="instagram-link" href="https://www.instagram.com/boulanjerie/" target="_blank" rel="noreferrer">
+      <span aria-hidden="true">◎</span> Instagram
+    </a>
+  </nav>
+</header>
+
+<script>
+  const button = document.querySelector("[data-menu-button]");
+  const menu = document.querySelector("[data-menu]");
+
+  const closeMenu = () => {
+    button?.setAttribute("aria-expanded", "false");
+    menu?.classList.remove("is-open");
+    document.body.classList.remove("menu-open");
+  };
+
+  button?.addEventListener("click", () => {
+    const open = button.getAttribute("aria-expanded") === "true";
+    button.setAttribute("aria-expanded", String(!open));
+    menu?.classList.toggle("is-open", !open);
+    document.body.classList.toggle("menu-open", !open);
+  });
+
+  menu?.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
+  window.addEventListener("resize", () => {
+    if (window.innerWidth >= 920) closeMenu();
+  });
+</script>

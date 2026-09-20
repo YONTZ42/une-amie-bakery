@@ -1,0 +1,59 @@
+---
+interface Props {
+  variant?: "flowers" | "bakery" | "wheat" | "bread" | "cinnamon";
+  curve?: boolean;
+  placement?: "top" | "bottom";
+}
+
+const { variant = "flowers", curve = true, placement = "top" } = Astro.props;
+---
+
+<div class:list={["decorative-divider", `divider-${variant}`, `divider-${placement}`, { "is-motif-only": !curve }]} aria-hidden="true">
+  {curve && (
+    <svg class="divider-curve" viewBox="0 0 1440 116" preserveAspectRatio="none">
+      <path d="M-30 78 C210 22 416 106 680 63 C930 22 1136 96 1470 42" />
+    </svg>
+  )}
+
+  <div class="divider-motifs">
+    {variant === "flowers" && (
+      <>
+        <img class="motif flower flower-one" src="/decor/flower.svg" alt="" />
+        <img class="motif flower flower-two" src="/decor/flower.svg" alt="" />
+        <img class="motif flower flower-three" src="/decor/flower.svg" alt="" />
+      </>
+    )}
+
+    {variant === "bakery" && (
+      <>
+        <img class="motif cloud" src="/decor/cloud.svg" alt="" />
+        <img class="motif house" src="/decor/house.svg" alt="" />
+        <img class="motif croissant" src="/decor/croissant.svg" alt="" />
+      </>
+    )}
+
+    {variant === "wheat" && (
+      <>
+        <img class="motif wheat wheat-one" src="/decor/wheat.svg" alt="" />
+        <img class="motif flower flower-center" src="/decor/flower.svg" alt="" />
+        <img class="motif wheat wheat-two" src="/decor/wheat.svg" alt="" />
+      </>
+    )}
+
+    {variant === "bread" && (
+      <>
+        <img class="motif croissant croissant-one" src="/decor/croissant.svg" alt="" />
+        <img class="motif wheat wheat-center" src="/decor/wheat.svg" alt="" />
+        <img class="motif croissant croissant-two" src="/decor/croissant.svg" alt="" />
+      </>
+    )}
+
+    {variant === "cinnamon" && (
+      <>
+        <img class="motif flower cinnamon-flower" src="/decor/flower.svg" alt="" />
+        <img class="motif croissant cinnamon-croissant" src="/decor/croissant.svg" alt="" />
+        <img class="motif house cinnamon-house" src="/decor/house.svg" alt="" />
+      </>
+    )}
+  </div>
+</div>

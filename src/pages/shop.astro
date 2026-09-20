@@ -1,0 +1,83 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import StoryDivider from "../components/StoryDivider.astro";
+
+import landscape from "../assets/images/shop-landscape-illustration.png";
+import interior from "../assets/images/store-interior-new.jpg";
+import storeSign from "../assets/images/store-sign.jpg";
+import terrace from "../assets/images/terrace-wide.jpg";
+import terraceEast from "../assets/images/terrace-view-east.png";
+import terraceWest from "../assets/images/terrace-view-west.png";
+---
+
+<BaseLayout title="SHOP｜ブーランジェリー アン アミー" description="アミーの店内、テラス、店舗情報とアクセスをご案内します。">
+  <Header />
+  <main class="shop-story-page">
+    <section class="story-hero shop-story-hero">
+      <Image src={landscape} alt="食パンのロゴを中心に、家々とパンを描いたアミーの線画" loading="eager" fetchpriority="high" />
+      <div class="container story-hero-heading">
+        <p class="eyebrow">SHOP</p>
+        <h1>つくばのアミーで、<br />お待ちしています。</h1>
+        <p>パンを選ぶ時間も、テラスで少し立ち止まる時間も。<br />気軽に立ち寄って、それぞれの時間をお過ごしください。</p>
+      </div>
+    </section>
+
+    <StoryDivider tone="paper" />
+
+    <section class="story-section shop-atmosphere">
+      <div class="container shop-atmosphere-grid">
+        <div class="story-copy reveal">
+          <p class="eyebrow">INSIDE THE SHOP</p>
+          <h2>パンを選ぶ時間を、<br />ゆっくりと。</h2>
+          <span class="title-rule"></span>
+          <p>焼き上がったパンの香りと、壁に並ぶ絵や季節の花。毎日の買い物の中で、ゆっくりパンを選び、少し楽しい気持ちまで持ち帰ってもらえる店内を目指しています。</p>
+        </div>
+        <figure class="shop-atmosphere-main reveal"><Image src={interior} alt="絵や花で彩られたアミーの店内" loading="lazy" /></figure>
+        <figure class="shop-atmosphere-sub reveal"><Image src={storeSign} alt="店内の壁に掲げられたブーランジェリー アン アミーのサイン" loading="lazy" /></figure>
+      </div>
+    </section>
+
+    <StoryDivider tone="sage" flip />
+
+    <section class="story-section shop-terrace">
+      <div class="container shop-terrace-grid">
+        <figure class="shop-terrace-wide reveal"><Image src={terrace} alt="パンとコーヒーを囲めるアミーのテラス席" loading="lazy" /></figure>
+        <div class="shop-terrace-views reveal" aria-label="アミーのテラス席の風景">
+          <figure><Image src={terraceEast} alt="庇の下にテーブルが並ぶ明るいテラス席" loading="lazy" /></figure>
+          <figure><Image src={terraceWest} alt="庭を眺めながら過ごせるテラス席" loading="lazy" /></figure>
+        </div>
+        <div class="story-copy shop-terrace-copy reveal">
+          <p class="eyebrow">STAY A LITTLE LONGER</p>
+          <h2>パンと過ごす、<br />それぞれの時間。</h2>
+          <span class="title-rule"></span>
+          <p>店の外には、パンとコーヒーを楽しめるテラスがあります。風を感じながら、家族や友達と。ひとりでゆっくりしたい日にも、気軽にお過ごしください。</p>
+        </div>
+      </div>
+    </section>
+
+    <StoryDivider tone="paper" />
+
+    <section class="story-section shop-info-section">
+      <div class="container shop-info-card reveal">
+        <div>
+          <p class="eyebrow">VISIT US</p>
+          <h2>ご来店の<br />ご案内。</h2>
+        </div>
+        <div class="shop-info-details">
+          <div><span>ADDRESS</span><address>〒305-0822<br />茨城県つくば市苅間215-10</address></div>
+          <div><span>ACCESS</span><p>つくば駅より車で約8分<br />つくば市役所より徒歩約10分<br />駐車場あり</p></div>
+          <div><span>OPENING</span><p>営業日・営業時間、臨時休業は<br />Instagramでお知らせします。</p></div>
+        </div>
+        <div class="shop-info-actions">
+          <a class="map-button" href="https://www.google.com/maps/search/?api=1&query=Boulangerie+une+Amie+つくば" target="_blank" rel="noreferrer">Google Map <span>→</span></a>
+          <a class="map-button" href="https://www.instagram.com/boulanjerie/" target="_blank" rel="noreferrer">Instagram <span>→</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <SiteFooter />
+</BaseLayout>

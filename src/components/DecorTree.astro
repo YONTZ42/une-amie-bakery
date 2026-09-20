@@ -1,0 +1,20 @@
+---
+interface Props {
+  className?: string;
+}
+
+const { className = "" } = Astro.props;
+---
+
+<span class:list={["decor-line", "decor-tree", className]} aria-hidden="true"></span>
+
+<style>
+  .decor-tree {
+    display: block;
+    width: 75px;
+    aspect-ratio: 75 / 122;
+    background: currentColor;
+    -webkit-mask: url('/decor/tree-amie.svg') center / contain no-repeat;
+    mask: url('/decor/tree-amie.svg') center / contain no-repeat;
+  }
+</style>

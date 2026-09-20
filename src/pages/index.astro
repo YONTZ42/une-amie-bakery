@@ -1,0 +1,226 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import StoryDivider from "../components/StoryDivider.astro";
+
+import heroDesktop from "../assets/images/hero-desktop.jpg";
+import heroMobile from "../assets/images/hero-mobile.jpg";
+import heroIllustration from "../assets/images/hero-girl-illustration.png";
+import shopIllustration from "../assets/images/shop-landscape-illustration.png";
+import girlLine from "../assets/images/amie-girl-line-master.png";
+import cinnamon from "../assets/images/cinnamon-roll-single-cutout.png";
+import owner from "../assets/images/owner.jpg";
+import gallerySign from "../assets/images/gallery-sign.jpg";
+import galleryInterior from "../assets/images/gallery-interior.jpg";
+import galleryCraft from "../assets/images/gallery-craft.jpg";
+
+const gallery = [
+  { image: heroDesktop, alt: "テラスのテーブルに並んだアミーのパンとコーヒー", position: "50% 57%" },
+  { image: heroMobile, alt: "アミーのテラス席とパンのある風景", position: "50% 55%" },
+  { image: gallerySign, alt: "店内に掲げられたブーランジェリー アン アミーのサイン", position: "50% 55%" },
+  { image: galleryInterior, alt: "アミー店内のアートと売り場", position: "50% 48%" },
+  { image: owner, alt: "オーブンでパンの焼き上がりを見守る私たち", position: "32% 50%" },
+];
+---
+
+<BaseLayout>
+  <Header />
+
+  <main id="top">
+    <section class="hero" aria-label="アミーのメインビジュアル">
+      <Image
+        class="hero-illustration"
+        src={heroIllustration}
+        alt="パンと少女、犬、家々を描いたアミーの手描きイラスト"
+        loading="eager"
+        fetchpriority="high"
+      />
+
+      <div class="hero-brand-message">
+        <p class="eyebrow">BOULANGERIE UNE AMIE</p>
+        <h1>何でもない時間を、<br />記憶に残る一ページに。</h1>
+        <p>つくばで、毎日の時間に寄り添うパンを焼く、<br class="desktop-break" />ブーランジェリー アン アミーです。</p>
+      </div>
+
+      <div class="hero-scroll" aria-hidden="true">
+        <span></span> SCROLL
+      </div>
+    </section>
+
+    <section class="concept section-shell" id="concept">
+      <div class="container concept-grid">
+        <div class="girl-art reveal" aria-label="シナモンロールを持つ女の子の線画">
+          <span class="girl-halo" aria-hidden="true"></span>
+          <Image src={girlLine} alt="帽子をかぶり、シナモンロールを持つ女の子の線画" />
+        </div>
+
+        <div class="concept-copy reveal">
+          <p class="eyebrow">OUR CONCEPT</p>
+          <h2>友達と過ごすような、<br />気取らない時間を。</h2>
+          <span class="title-rule"></span>
+          <p>
+            久しぶりに会って、話が止まらなかった日。<br />
+            何でもない話をしながら、<br />
+            同じものを半分ずつ食べた時間。
+          </p>
+          <p>
+            大きな出来事ではなくても、<br />
+            あとから思い出すと、心に残っている瞬間があります。
+          </p>
+          <p>
+            アミーは、おいしいパンとともに、<br />
+            そんな時間を届けられる店でありたいと思っています。
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+    <section class="cinnamon" id="cinnamon">
+      <StoryDivider tone="terracotta" motifs="cinnamon" curve={false} className="cinnamon-inner-motifs cinnamon-inner-motifs--top" />
+      <div class="container cinnamon-feature reveal">
+        <div class="cinnamon-visual">
+          <span class="cinnamon-glow" aria-hidden="true"></span>
+          <Image class="cinnamon-photo" src={cinnamon} alt="一個だけを大きく見せた、アイシングと渦巻きが印象的なアミーのシナモンロール" loading="lazy" />
+          <figure class="cinnamon-character" aria-label="シナモンロールを手にするアミーの女の子">
+            <Image src={girlLine} alt="シナモンロールを手にするアミーの女の子" loading="lazy" />
+          </figure>
+        </div>
+
+        <div class="cinnamon-copy">
+          <p class="eyebrow">SIGNATURE</p>
+          <h2>アミーのシナモンロール</h2>
+          <p class="cinnamon-lead">季節が変わっても、<br />何度でも戻ってきたくなる。</p>
+          <p class="cinnamon-description">
+            アミーの原点は、このシナモンロールです。
+          </p>
+          <a class="ghost-button" href="/cinnamon-roll/">もっと詳しく <span>→</span></a>
+        </div>
+      </div>
+      <StoryDivider tone="terracotta" motifs="cinnamon" curve={false} flip className="cinnamon-inner-motifs cinnamon-inner-motifs--bottom" />
+    </section>
+
+    <section class="owner section-shell" id="people">
+      <div class="container owner-grid">
+        <div class="owner-copy reveal">
+          <p class="eyebrow">BAKED TODAY</p>
+          <h2>今日、店頭で出会えるパン。</h2>
+          <span class="title-rule"></span>
+          <p>
+            食卓に並べたいパンも、ひと息つく時間に食べたいパンも。その日の暮らしに自然となじむパンを、一つひとつ店内で焼き上げています。
+          </p>
+          <p>
+            素材や製法と同じように、「どんな時間に食べてほしいか」を大切に。朝の食卓にも、少しお腹が空いた午後にも、誰かと過ごす時間にも寄り添えるパンをつくります。
+          </p>
+          <p>
+            パンの顔ぶれは、日によって変わります。店頭で、その日に出会えるパンをお楽しみください。
+          </p>
+          <a class="ghost-button" href="/breads/">今日のパンを見る <span>→</span></a>
+        </div>
+
+        <figure class="owner-photo reveal">
+          <Image src={galleryCraft} alt="厨房でパンを仕込む私たちの手元" loading="lazy" />
+          <figcaption>毎日の焼き上がりに、きちんと目を配る。</figcaption>
+        </figure>
+      </div>
+
+    </section>
+
+    <StoryDivider tone="paper" />
+
+    <section class="neighbors" id="message">
+      <div class="container neighbors-inner reveal">
+        <p class="eyebrow">THE NAME, UNE AMIE</p>
+        <h2>アミーという、名前のこと。</h2>
+        <span class="title-rule"></span>
+        <p>
+          une amieは、フランス語で「女友達」。<br />
+          気軽に訪ねられて、自然と会話が生まれる。<br />
+          アミーという名前には、そんな店でありたいという思いを込めています。
+        </p>
+        <a class="ghost-button" href="/about/">アミーについて <span>→</span></a>
+      </div>
+    </section>
+
+    <StoryDivider tone="paper" flip />
+
+    <section class="gallery-section section-shell" id="gallery">
+      <div class="container">
+        <div class="gallery-block">
+          <div class="section-heading-row reveal">
+            <div class="section-heading">
+              <p class="eyebrow">GALLERY</p>
+              <h2>お店の風景</h2>
+              <span class="title-rule"></span>
+            </div>
+            <div class="carousel-controls" aria-label="ギャラリーのスライド操作">
+              <button type="button" class="carousel-button" data-carousel-prev aria-label="前の写真を見る">←</button>
+              <button type="button" class="carousel-button" data-carousel-next aria-label="次の写真を見る">→</button>
+            </div>
+          </div>
+          <div class="carousel-shell" data-carousel>
+          <div class="gallery-carousel carousel-track" data-carousel-track tabindex="0" aria-label="お店の風景">
+            {gallery.map((item) => (
+              <figure class="gallery-item reveal" style={`--photo-position: ${item.position}`}>
+                <Image src={item.image} alt={item.alt} loading="lazy" />
+              </figure>
+            ))}
+          </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <StoryDivider tone="paper" />
+
+    <section class="shop-access" id="access" aria-label="店舗情報とアクセス">
+      <Image
+        class="shop-access-illustration"
+        src={shopIllustration}
+        alt="街並みとパンを描いたアミーの手描きイラスト"
+        loading="lazy"
+      />
+      <div class="container shop-access-content">
+        <aside class="access-card reveal">
+          <p class="eyebrow">SHOP / ACCESS</p>
+          <h2>お店のご案内</h2>
+          <address>〒305-0822<br />茨城県つくば市苅間215-10</address>
+          <p>つくば駅より車で約8分<br />つくば市役所より徒歩約10分</p>
+          <p>駐車場あり</p>
+          <div class="access-actions">
+            <a class="map-button" href="https://www.google.com/maps/search/?api=1&query=Boulangerie+une+Amie+つくば" target="_blank" rel="noreferrer">Google Map <span>→</span></a>
+            <a class="map-button" href="/shop/">SHOP PAGE <span>→</span></a>
+          </div>
+        </aside>
+      </div>
+
+    </section>
+  </main>
+
+  <SiteFooter />
+
+  <script>
+    document.querySelectorAll("[data-carousel]").forEach((carousel) => {
+      const track = carousel.querySelector<HTMLElement>("[data-carousel-track]");
+      const controls = carousel.previousElementSibling;
+      const previous = controls?.querySelector<HTMLButtonElement>("[data-carousel-prev]");
+      const next = controls?.querySelector<HTMLButtonElement>("[data-carousel-next]");
+
+      if (!track || !previous || !next) return;
+
+      const slideBy = (direction: number) => {
+        const firstSlide = track.firstElementChild as HTMLElement | null;
+        if (!firstSlide) return;
+        const gap = Number.parseFloat(getComputedStyle(track).columnGap || "0");
+        track.scrollBy({ left: direction * (firstSlide.offsetWidth + gap), behavior: "smooth" });
+      };
+
+      previous.addEventListener("click", () => slideBy(-1));
+      next.addEventListener("click", () => slideBy(1));
+    });
+  </script>
+</BaseLayout>
